@@ -20,7 +20,7 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    public String creationDate;
+    private String creationDate;
 
     @SequenceGenerator(name = "team_seq", sequenceName =
             "team_sequence", allocationSize = 1)

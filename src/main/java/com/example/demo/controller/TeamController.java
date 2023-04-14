@@ -13,13 +13,13 @@ import com.example.demo.models.Team;
 import com.example.demo.repository.team.TeamRepos;
 
 @RestController
-@RequestMapping("/team")
+@RequestMapping
 public class TeamController {
 
     @Autowired
     private TeamRepos teamRepos;
 
-    @GetMapping
+    @GetMapping("/team")
     public Iterable<Team> getTeams(){
         return teamRepos.findAll();
     }
