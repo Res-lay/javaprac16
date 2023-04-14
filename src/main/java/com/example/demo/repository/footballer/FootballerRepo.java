@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.demo.repository.footballer;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Footballer;
-import com.example.demo.repository.FootballerRepo;
+import com.example.demo.repository.footballer.FootballerRepo;
 
 @RestController
 @RequestMapping
