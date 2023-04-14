@@ -25,7 +25,7 @@ public class Footballer {
     private Team team;
 
     public Footballer(String firstname, String lastname){
-        this.firstname = "test" +  firstname;
+        this.firstname = firstname;
         this.lastname = lastname;
     }
 
