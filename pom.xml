@@ -57,10 +57,10 @@
     		<artifactId>hibernate-core</artifactId>
 			<version>6.2.0.CR1</version>   
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.hibernate.cfg.annotations.BasicValueBinder</groupId>
-			<artifactId>hibernate</artifactId>
-		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
