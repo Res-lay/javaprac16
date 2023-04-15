@@ -11,24 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.models.Footballer;
 import com.example.demo.repository.footballer.FootballerRepo;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping
-@Slf4j
 public class FootballerControler {
     @Autowired
     private FootballerRepo footballerRepos;
 
     @GetMapping("/footballer")
     public Iterable<Footballer> getFootballers(){
-        log.info("Find all footballers");
+        // log.info("Find all footballers");
         return footballerRepos.findAll();
     }
 
     @GetMapping("/footballer/{firstname}/{lastname}")
     public List<Footballer> filterBy(@PathVariable("firstname") String firstname, @PathVariable("lastname") String lastname){
-        log.info("Get certain footballer");
+        // log.info("Get certain footballer");
         return footballerRepos.findByOptions(firstname, lastname);
     }
 }
