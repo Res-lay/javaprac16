@@ -892,3 +892,7 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2023-04-16 18:27:42,450 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
 2023-04-16 18:27:42,476 INFO c.e.d.DemoApplication [restartedMain] Started DemoApplication in 5.732 seconds (process running for 6.492)
 2023-04-16 18:28:04,973 INFO o.a.c.c.C.[.[.[/] [http-nio-8080-exec-7] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-16 18:28:04,975 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-7] Initializing Servlet 'dispatcherServlet'
+2023-04-16 18:28:04,977 INFO o.s.w.s.DispatcherServlet [http-nio-8080-exec-7] Completed initialization in 1 ms
+2023-04-16 18:28:05,121 INFO c.e.d.Aspect [http-nio-8080-exec-7] Method createFootballer start
+2023-04-16 18:28:06,450 INFO c.e.d.Aspect [http-nio-8080-exec-7] Method finish - 1327 ms
