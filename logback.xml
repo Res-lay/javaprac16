@@ -5,10 +5,10 @@
         </encoder>
     </appender>
     <appender name="FILE"class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>application.log</file>
+        <file>${LOGS}/spring-boot-logger.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>application.%d{yyyy-MMdd}.gz</fileNamePattern>
-            <maxHistory>3   0</maxHistory>
+            <fileNamePattern>${LOGS}/archived/application.%d{yyyy-MMdd}.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
