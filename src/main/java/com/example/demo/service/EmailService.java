@@ -15,6 +15,7 @@ public class EmailService {
     @Async
     public void sendEmail(String objectName){
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("ivanlatysheff@gmail.com");
         message.setTo("ivanlatyshev024@gmail.com");
         message.setSubject("New Object");
         message.setText("A new object has been created");
