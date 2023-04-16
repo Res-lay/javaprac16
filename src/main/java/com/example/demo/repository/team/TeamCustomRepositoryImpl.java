@@ -1,10 +1,10 @@
 package com.example.demo.repository.team;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.models.Footballer;
 import com.example.demo.models.Team;
 
 import jakarta.persistence.EntityManager;
@@ -37,6 +37,21 @@ public class TeamCustomRepositoryImpl implements TeamCustomRepository{
         
 	}
 
+    @Override
+    public List<String> getData(Long Id){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(Team.class);
+		Root<Team> team = cq.from(Team.class);
+
+        Predicate IdPredicate = cb.equal(team.get("Id"), Id);
+        cq.where(IdPredicate);
+        TypedQuery<Team> query = entityManager.createQuery(cq);
+        Team team2 = query.getSingleResult();
+        List<String> data = new ArrayList<>();
+        data.add("Name: " + team2.getName());
+        data.add("CreationDate: " + team2.getCreationDate());
+        return data;
+    }
 
     
 }

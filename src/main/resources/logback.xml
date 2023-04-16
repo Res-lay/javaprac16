@@ -26,13 +26,5 @@
     <root level="info">
         <appender-ref ref="Console" />
         <appender-ref ref="RollingFile" />
-    </root>
-
-    <logger name="com.baeldung" level="debug" additivity="false">
-        <appender-ref ref="Console" />
-        <appender-ref ref="RollingFile" />
-    </logger>
-
-    <conversionRule conversionWord="line" converterClass="ch.qos.logback.classic.pattern.LineNumberConverter" />
-    
+    </root>    
 </configuration>

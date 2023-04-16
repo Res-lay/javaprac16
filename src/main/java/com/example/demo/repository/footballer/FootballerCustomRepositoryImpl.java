@@ -1,5 +1,6 @@
 package com.example.demo.repository.footballer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,20 @@ public class FootballerCustomRepositoryImpl implements FootballerCustomRepositor
         return query.getResultList();
 	}
     
+    @Override
+    public List<String> getData(Long Id){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(Footballer.class);
+		Root<Footballer> footballer = cq.from(Footballer.class);
+
+        Predicate IdPredicate = cb.equal(footballer.get("Id"), Id);
+        cq.where(IdPredicate);
+        TypedQuery<Footballer> query = entityManager.createQuery(cq);
+        Footballer footballer2 = query.getSingleResult();
+        List<String> data = new ArrayList<>();
+        data.add("FirstName: " + footballer2.getFirstname());
+        data.add("LastName: " + footballer2.getLastname());
+        return data;
+    }
     
 }

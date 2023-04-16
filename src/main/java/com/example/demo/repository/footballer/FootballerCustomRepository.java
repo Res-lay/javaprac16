@@ -6,4 +6,5 @@ import com.example.demo.models.Footballer;
 
 public interface FootballerCustomRepository {
     List<Footballer> findByOptions(String firstOption, String secondOption);
+    List<String> getData(Long Id);
 }
