@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Team;
 import com.example.demo.repository.team.TeamRepos;
-import com.example.demo.service.EmailService;
+// import com.example.demo.service.EmailService;
 
 import jakarta.transaction.Transactional;
 
@@ -26,8 +26,8 @@ public class TeamController {
     @Autowired
     private TeamRepos teamRepos;
 
-    @Autowired
-    private EmailService emailService;
+    // @Autowired
+    // private EmailService emailService;
 
     @GetMapping
     public Iterable<Team> getTeams(){
@@ -37,7 +37,7 @@ public class TeamController {
     @PostMapping
     public void createTeam(@RequestBody Map<String, String> message){
         Team team = new Team(message.get("name"), message.get("creationDate"));
-        emailService.sendEmail(message.get("name"));
+        // emailService.sendEmail(message.get("name"));
         teamRepos.save(team);
     }
     @GetMapping("/team/{name}/{creationDate}")

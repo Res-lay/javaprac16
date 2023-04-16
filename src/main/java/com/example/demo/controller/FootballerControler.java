@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Footballer;
 import com.example.demo.repository.footballer.FootballerRepo;
-import com.example.demo.service.EmailService;
+// import com.example.demo.service.EmailService;
 
 import jakarta.transaction.Transactional;
 
@@ -23,8 +23,8 @@ public class FootballerControler {
     @Autowired
     private FootballerRepo footballerRepos;
 
-    @Autowired
-    private EmailService emailService;
+    // @Autowired
+    // private EmailService emailService;
 
     @GetMapping
     public Iterable<Footballer> getFootballers(){
@@ -41,7 +41,7 @@ public class FootballerControler {
     @PostMapping
     public void createFootballer(@RequestBody Footballer footballer){
         // Footballer footballer = new Footballer(message.get("firstname"), message.get("lastname"));
-        emailService.sendEmail(footballer.getFirstname());
+        // emailService.sendEmail(footballer.getFirstname());
         footballerRepos.save(footballer);
     }
 }
