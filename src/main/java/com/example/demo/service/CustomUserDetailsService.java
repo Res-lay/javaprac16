@@ -4,14 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import com.example.demo.models.User;
 import com.example.demo.repository.UserRepo;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService{
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepo userRepo;
@@ -32,7 +35,14 @@ public class CustomUserDetailsService implements UserDetailsService{
         return userDetails;
     }
 
-    public void save(User user){
+    public String signUpUser(User user) {
+        boolean exist = userRepo.findUserByName(user.getUsername()) != null;
+        if (exist) {
+            throw new IllegalStateException("already exists");
+        }
+        String password = user.getPassword();
+        user.setPassword(passwordEncoder.encode(password));
         userRepo.save(user);
+        return "login";
     }
 }

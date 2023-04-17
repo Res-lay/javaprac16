@@ -1,15 +1,10 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.User;
 import com.example.demo.service.CustomUserDetailsService;
@@ -18,26 +13,20 @@ import com.example.demo.service.CustomUserDetailsService;
 public class RegistrationController {
 
     @Autowired
-    private CustomUserDetailsService userService;
+    private CustomUserDetailsService userAppService;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @GetMapping("/registration")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-        return "registrationForm.html";
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login";
     }
 
-    @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "registrationForm.html";
-        }
-        User user = new User();
-        user.setUsername(userForm.getUsername());
-        user.setPassword(bCryptPasswordEncoder.encode(userForm.getPassword()));
-        userService.save(user);
-        return "redirect:/login";
+    @GetMapping("/reg")
+    public String getRegistrationPage(@ModelAttribute("user") User user) {
+        return "registration";
+    }
+
+    @PostMapping("/reg")
+    public String signUpUser(@ModelAttribute("user") User user) {
+        return userAppService.signUpUser(user);
     }
 }
