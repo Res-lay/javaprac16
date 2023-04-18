@@ -27,10 +27,11 @@ public class SpringSecurity{
         http.csrf()
                 .disable().cors()
                 .disable().authorizeHttpRequests()
-                .requestMatchers("/login", "/reg").permitAll()
-                .anyRequest().authenticated()
-               .and().formLogin()
-                // .and().logout()
+                .anyRequest().permitAll()
+            //     .requestMatchers("/login", "/reg").permitAll()
+            //     .anyRequest().authenticated()
+            //    .and().formLogin()
+                .and().logout()
                 .and().userDetailsService(userAppService);
         return http.build();
     }
