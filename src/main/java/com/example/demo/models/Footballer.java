@@ -3,6 +3,7 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +22,7 @@ public class Footballer {
     private Long id;
     
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) 
     private Team team;
 
     public Footballer(String firstname, String lastname){
