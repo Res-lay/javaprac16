@@ -1,9 +1,9 @@
 package com.example.demo.repository.footballer;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.models.Footballer;
 
-public interface FootballerRepo extends JPARepository<Footballer, Long>, FootballerCustomRepository {
+public interface FootballerRepo extends JpaRepository<Footballer, Long>, FootballerCustomRepository {
     
 }
